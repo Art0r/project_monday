@@ -1,5 +1,11 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<h1>Ola Mundo 1</h1>
+
+<div 
+  hx-get="{{url_for('index.index_random')}}"
+  hx-trigger='load, every 1s' 
+  hx-swap="innerHTML">
+</div>
+
 {% endblock %}
