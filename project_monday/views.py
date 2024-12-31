@@ -8,9 +8,12 @@ def index():
     return render_template('index.html')
 
 
-@app_blueprint.route('/random')
-def index_random():
+@app_blueprint.route('/random', methods=['GET', 'POST'])
+def randomizer():
 
     import random
+    import time
 
-    return render_template('random.html', r=int(random.random() * 100))
+    time.sleep(.2)
+
+    return render_template('randomizer.html', r=int(random.random() * 100))

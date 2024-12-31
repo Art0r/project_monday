@@ -1,11 +1,21 @@
 {% extends '_base.html' %}
 
+{% block head %}
+  <link href="{{url_for('static', filename='css/index.css') }}" rel="stylesheet">
+{% endblock head %}
+
 {% block content %}
 
-<div 
-  hx-get="{{url_for('index.index_random')}}"
-  hx-trigger='load, every 1s' 
-  hx-swap="innerHTML">
-</div>
+<button
+  hx-post="{{url_for('index.randomizer')}}"
+  hx-trigger="click"
+  hx-target="#randomizer-renderer"
+  hx-indicator="#randomizer-renderer-loading" 
+  hx-swap="innerhtml">
+  click
+</button>
+
+<div id="randomizer-renderer"></div>
+<span id="randomizer-renderer-loading">loading</span>
 
 {% endblock %}
