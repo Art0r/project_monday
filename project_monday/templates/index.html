@@ -1,12 +1,23 @@
 {% extends '_base.html' %}
 
-{% block head %}
-  <link href="{{url_for('static', filename='css/index.css') }}" rel="stylesheet">
-{% endblock head %}
+{% block style %}
 
-{% block content %}
+  <style>
+    #randomizer-renderer-loading {
+      display: none;
+    }
+
+    .htmx-request#randomizer-renderer-loading {
+      display: inline;
+    } 
+  </style>
+
+{% endblock style %}
+
+{% block template %}
 
 <button
+  class="button is-danger is-rounded"
   hx-post="{{url_for('index.randomizer')}}"
   hx-trigger="click"
   hx-target="#randomizer-renderer"
@@ -18,4 +29,21 @@
 <div id="randomizer-renderer"></div>
 <span id="randomizer-renderer-loading">loading</span>
 
-{% endblock %}
+{% endblock template %}
+
+{% block script %}
+
+  <script> 
+    document.addEventListener("htmx:beforeSwap", (e) => {
+
+      const target = event.detail.target;
+      
+      target.classList.remove("slide-in");
+      
+      void target.offsetWidth;
+
+      target.classList.add("slide-in"); 
+    });
+  </script>
+
+{% endblock script %}

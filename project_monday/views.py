@@ -8,7 +8,7 @@ def index():
     return render_template('index.html')
 
 
-@app_blueprint.route('/random', methods=['GET', 'POST'])
+@app_blueprint.route('/randomizer', methods=['POST'])
 def randomizer():
 
     import random
