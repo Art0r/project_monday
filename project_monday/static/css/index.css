@@ -1,0 +1,8 @@
+#randomizer-renderer-loading {
+      display: none;
+}
+
+.htmx-request#randomizer-renderer-loading {
+	display: inline;
+}
+

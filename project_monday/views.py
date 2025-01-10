@@ -17,3 +17,4 @@ def randomizer():
     time.sleep(.2)
 
     return render_template('randomizer.html', r=int(random.random() * 100))
+

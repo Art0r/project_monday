@@ -1,17 +1,7 @@
 {% extends '_base.html' %}
 
 {% block style %}
-
-  <style>
-    #randomizer-renderer-loading {
-      display: none;
-    }
-
-    .htmx-request#randomizer-renderer-loading {
-      display: inline;
-    } 
-  </style>
-
+<link rel=""  />
 {% endblock style %}
 
 {% block template %}
@@ -32,18 +22,5 @@
 {% endblock template %}
 
 {% block script %}
-
-  <script> 
-    document.addEventListener("htmx:beforeSwap", (e) => {
-
-      const target = event.detail.target;
-      
-      target.classList.remove("slide-in");
-      
-      void target.offsetWidth;
-
-      target.classList.add("slide-in"); 
-    });
-  </script>
 
 {% endblock script %}
